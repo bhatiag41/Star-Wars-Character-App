@@ -26,10 +26,10 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: '#000000' }}>
-      <div className="border-2 border-sw-gold rounded-lg p-8 max-w-md w-full" style={{ backgroundColor: '#0A0A0A' }}>
-        <h2 className="text-3xl font-display font-bold text-sw-gold mb-6 text-center">
-          ═══ ACCESS DATABANK ═══
+    <div className="min-h-screen flex items-center justify-center p-4 relative z-10">
+      <div className="border-2 border-sw-gold rounded-lg p-8 max-w-md w-full relative z-10" style={{ backgroundColor: '#00000000', backdropFilter: 'blur(5px)' }}>
+        <h2 className="text-xl sm:text-3xl font-display font-bold text-sw-gold mb-6 text-center tracking-wider" style={{ letterSpacing: '0.1em' }}>
+           ACCESS DATABANK
         </h2>
         
         <form onSubmit={handleSubmit} className="space-y-4">

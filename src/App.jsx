@@ -34,7 +34,7 @@ const Header = () => {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4 h-full">
           {/* Logo Section with Animation */}
           <div className="flex items-center gap-2 sm:gap-3">
-
+            <span className="text-sw-gold text-2xl sm:text-3xl font-bold">⌜</span>
             <div className="flex flex-col">
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-sw-gold tracking-wider animate-header-appear" style={{
                 letterSpacing: '0.1em',
@@ -63,7 +63,7 @@ const Header = () => {
                 DATABANK
               </span>
             </div>
-         
+            <span className="text-sw-gold text-2xl sm:text-3xl font-bold">⌝</span>
           </div>
 
           {/* Navigation Items */}
@@ -217,6 +217,7 @@ const CharacterList = () => {
 const App = () => {
   return (
     <AuthProvider>
+      {/* StarField as persistent background for all pages */}
       <StarField />
       <BrowserRouter>
         <Routes>

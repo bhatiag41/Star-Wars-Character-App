@@ -7,13 +7,13 @@ export const SPECIES_COLORS = {
     glow: 'shadow-glow-gold',
     text: 'text-sw-gold'
   },
-  'DROID': {
-    bg: 'bg-gradient-to-br from-[#2f3635] to-[#44354f]',
+  'Droid': {
+    bg: 'bg-gradient-to-br from-[#1a1a1a] to-[#2a2a2a]',
     border: 'border-sw-amber',
     glow: 'shadow-glow-gold',
     text: 'text-sw-amber'
   },
-  'Wookie': {
+  'Wookiee': {
     bg: 'bg-gradient-to-br from-[#1a0f00] to-[#2a1500]',
     border: 'border-sw-orange',
     glow: 'shadow-glow-gold',
@@ -61,8 +61,8 @@ export const SPECIES_COLORS = {
     glow: 'shadow-glow-gold',
     text: 'text-sw-gold'
   },
-  'HUTT': {
-    bg: 'bg-gradient-to-br from-[#403a37] to-[#7a4b35]',
+  'Neimodian': {
+    bg: 'bg-gradient-to-br from-[#0a1a0a] to-[#152615]',
     border: 'border-[#90EE90]',
     glow: 'shadow-glow-gold',
     text: 'text-[#90EE90]'
