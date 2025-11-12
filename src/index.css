@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-body;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #000000;
+    color: #E8E8E8;
+  }
+
+  #root {
+    position: relative;
+    z-index: 1;
+    background-color: #000000;
+  }
+}
+
+@layer utilities {
+  .holographic-overlay {
+    position: relative;
+  }
+
+  .holographic-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(75, 213, 238, 0.1) 0%,
+      transparent 50%,
+      rgba(75, 213, 238, 0.1) 100%
+    );
+    pointer-events: none;
+    animation: scan 3s linear infinite;
+  }
+
+  .tech-border {
+    position: relative;
+  }
+
+  .tech-border::before,
+  .tech-border::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid currentColor;
+  }
+
+  .tech-border::before {
+    top: -2px;
+    left: -2px;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  .tech-border::after {
+    bottom: -2px;
+    right: -2px;
+    border-left: none;
+    border-top: none;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
+@keyframes letterAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Star Wars Themed Scrollbars */
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Remove scrollbar arrows completely */
+::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+  border: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FFE81F 0%, #1a1a1a 50%, #FFE81F 100%);
+  border: 1px solid #FFE81F;
+  border-radius: 0;
+  box-shadow: 0 0 10px rgba(255, 232, 31, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #FFA500 0%, #FFE81F 50%, #FFA500 100%);
+  box-shadow: 0 0 15px rgba(255, 232, 31, 0.8);
+  border-color: #FFE81F;
+}
+
+::-webkit-scrollbar-corner {
+  background: #000000;
+  border: none;
+}
+
+/* Prevent scrollbar on header */
+header {
+  overflow: hidden !important;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #FFE81F #000000;
+}
+
+/* Custom scrollbar for modals and specific containers */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar-button:start:decrement,
+.custom-scrollbar::-webkit-scrollbar-button:end:increment {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.8);
+  border: none;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FFE81F 0%, #FFA500 100%);
+  border: 1px solid rgba(255, 232, 31, 0.3);
+  border-radius: 0;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #FFA500 0%, #FFE81F 100%);
+  box-shadow: 0 0 10px rgba(255, 232, 31, 0.6);
+}
+
+.custom-scrollbar::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0.8);
+  border: none;
+}
+
