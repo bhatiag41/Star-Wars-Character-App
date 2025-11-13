@@ -68,42 +68,35 @@ const StarField = () => {
     canvas.style.pointerEvents = 'none';
     canvas.style.zIndex = '-10';
     canvas.style.display = 'block';
-    // No CSS blur - using depth-of-field in shader instead
     
     mountRef.current.appendChild(canvas);
     rendererRef.current = renderer;
     
     console.log('StarField: Renderer created, canvas appended to DOM');
 
-    // Create star geometry
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
 
-    // Star colors: white (70%), gold (20%), warm white (10%) - NO BLUE
-    const whiteColor = new THREE.Color(1, 1, 1); // Pure white
-    const goldColor = new THREE.Color(1, 0.91, 0.12); // #FFE81F - Star Wars yellow
-    const warmWhiteColor = new THREE.Color(1, 0.98, 0.9); // Slightly warm white
+    const whiteColor = new THREE.Color(1, 1, 1);
+    const goldColor = new THREE.Color(1, 0.91, 0.12);
+    const warmWhiteColor = new THREE.Color(1, 0.98, 0.9);
 
-    // Initialize stars
     for (let i = 0; i < particleCount; i++) {
       const i3 = i * 3;
 
-      // Random positions - spread stars in 3D space
-      // Stars positioned behind camera (negative Z) so they move toward camera
       positions[i3] = (Math.random() - 0.5) * 2000;
       positions[i3 + 1] = (Math.random() - 0.5) * 2000;
-      positions[i3 + 2] = Math.random() * (startZ - resetZ) + resetZ; // From -1500 to -100
+      positions[i3 + 2] = Math.random() * (startZ - resetZ) + resetZ;
 
-      // Random colors based on distribution: 70% white, 20% gold, 10% warm white
       const rand = Math.random();
       let color;
       if (rand < 0.7) {
-        color = whiteColor; // 70% - white stars
+        color = whiteColor;
       } else if (rand < 0.9) {
-        color = goldColor; // 20% - gold stars
+        color = goldColor;
       } else {
-        color = warmWhiteColor; // 10% - warm white stars
+        color = warmWhiteColor;
       }
 
       colors[i3] = color.r;
@@ -218,13 +211,9 @@ const StarField = () => {
     console.log('StarField: Stars count:', particleCount);
     console.log('StarField: Renderer canvas:', renderer.domElement);
     
-    // Initial render to ensure stars are visible
     renderer.render(scene, camera);
     console.log('StarField: Initial render complete');
 
-    // NO NEBULA - Removed blue nebula for pure black space
-
-    // Mouse tracking for parallax
     const handleMouseMove = (event) => {
       mouseRef.current.x = (event.clientX / window.innerWidth) * 2 - 1;
       mouseRef.current.y = -(event.clientY / window.innerHeight) * 2 + 1;

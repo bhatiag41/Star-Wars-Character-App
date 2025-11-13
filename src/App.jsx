@@ -32,7 +32,7 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-8 h-full">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4 h-full">
           <div className="flex items-center gap-2 sm:gap-3">
-            <span className="text-sw-gold text-2xl sm:text-3xl font-bold">⌜</span>
+          
             <div className="flex flex-col">
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-sw-gold tracking-wider animate-header-appear" style={{
                 letterSpacing: '0.1em',
@@ -61,7 +61,7 @@ const Header = () => {
                 DATABANK
               </span>
             </div>
-            <span className="text-sw-gold text-2xl sm:text-3xl font-bold">⌝</span>
+          
           </div>
 
           <div className="flex items-center gap-2 sm:gap-4 w-full sm:w-auto justify-between sm:justify-end">

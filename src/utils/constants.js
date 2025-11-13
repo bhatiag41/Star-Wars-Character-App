@@ -73,6 +73,12 @@ export const SPECIES_COLORS = {
     glow: 'shadow-glow-red',
     text: 'text-sw-red'
   },
+  'Hutt': {
+    bg: 'bg-gradient-to-br from-[#1a150a] to-[#2a2515]',
+    border: 'border-[#8B7355]',
+    glow: 'shadow-glow-gold',
+    text: 'text-[#8B7355]'
+  },
   'default': {
     bg: 'bg-gradient-to-br from-[#0A0A0A] to-[#1a1a1a]',
     border: 'border-sw-deep-gold',
