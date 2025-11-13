@@ -13,7 +13,7 @@ export const SPECIES_COLORS = {
     glow: 'shadow-glow-gold',
     text: 'text-sw-amber'
   },
-  'Wookiee': {
+  'Wookie': {
     bg: 'bg-gradient-to-br from-[#1a0f00] to-[#2a1500]',
     border: 'border-sw-orange',
     glow: 'shadow-glow-gold',
