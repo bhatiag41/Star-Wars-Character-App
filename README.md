@@ -18,7 +18,6 @@ A modern, Star Wars-themed React application for browsing and exploring characte
 - **React 18** - UI library
 - **Vite** - Build tool
 - **Tailwind CSS** - Styling
-- **React Router** - Routing
 - **Vitest** - Testing framework
 - **SWAPI** - Star Wars API
 
@@ -61,20 +60,6 @@ npm test
 - Username: `han` / Password: `solo`
 - Username: `admin` / Password: `admin123`
 
-## Project Structure
-
-```
-star-wars-app/
-├── src/
-│   ├── components/       # React components
-│   ├── hooks/            # Custom React hooks
-│   ├── services/         # API and auth services
-│   ├── utils/            # Utility functions
-│   ├── context/          # React context providers
-│   └── App.jsx           # Main app component
-├── tests/                # Test files
-└── package.json
-```
 
 ## Features in Detail
 
@@ -101,17 +86,6 @@ star-wars-app/
 - Auto token refresh
 - Login/logout functionality
 
-## Design System
-
-### Colors
-- **Primary Yellow**: `#FFE81F` - Star Wars logo yellow
-- **Primary Blue**: `#4BD5EE` - Lightsaber blue
-- **Space Background**: `#0A0E27` - Deep space
-- **Dark Surface**: `#1a1d3a` - Space blue-black
-
-### Typography
-- **Display Font**: Orbitron, Rajdhani (futuristic, tech feel)
-- **Body Font**: Roboto, Inter (clean readability)
 
 ## License
 
