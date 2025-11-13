@@ -64,7 +64,6 @@ const FilterPanel = ({ onFilterChange, filters }) => {
             <p className="text-sw-light/80 text-sm sm:text-base font-display">LOADING FILTERS...</p>
           ) : (
             <>
-              {/* Homeworld Filter */}
               <div>
                 <label className="block text-sw-deep-gold font-display mb-1.5 sm:mb-2 text-sm sm:text-base">HOMEWORLD</label>
                 <select
@@ -80,7 +79,6 @@ const FilterPanel = ({ onFilterChange, filters }) => {
                 </select>
               </div>
 
-              {/* Film Filter */}
               <div>
                 <label className="block text-sw-deep-gold font-display mb-1.5 sm:mb-2 text-sm sm:text-base">FILM</label>
                 <select
@@ -96,7 +94,6 @@ const FilterPanel = ({ onFilterChange, filters }) => {
                 </select>
               </div>
 
-              {/* Species Filter */}
               <div>
                 <label className="block text-sw-deep-gold font-display mb-1.5 sm:mb-2 text-sm sm:text-base">SPECIES</label>
                 <select

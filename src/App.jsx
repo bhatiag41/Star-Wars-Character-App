@@ -19,7 +19,6 @@ import { LogOut } from 'lucide-react';
 const Header = () => {
   const { logout, user } = useAuth();
 
-  // Split text for letter animation
   const titleText = "STAR WARS";
   const titleLetters = titleText.split('');
 
@@ -32,7 +31,6 @@ const Header = () => {
     }}>
       <div className="container mx-auto px-4 sm:px-8 h-full">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4 h-full">
-          {/* Logo Section with Animation */}
           <div className="flex items-center gap-2 sm:gap-3">
             <span className="text-sw-gold text-2xl sm:text-3xl font-bold">⌜</span>
             <div className="flex flex-col">
@@ -66,7 +64,6 @@ const Header = () => {
             <span className="text-sw-gold text-2xl sm:text-3xl font-bold">⌝</span>
           </div>
 
-          {/* Navigation Items */}
           <div className="flex items-center gap-2 sm:gap-4 w-full sm:w-auto justify-between sm:justify-end">
             {user && (
               <div className="text-sw-deep-gold text-xs sm:text-sm font-body" style={{ fontFamily: 'Rajdhani, sans-serif' }}>
@@ -101,30 +98,25 @@ const CharacterList = () => {
   const debouncedSearch = useDebounce(searchQuery, 500);
   const { characters, loading, error, totalPages } = useCharacters(currentPage);
 
-  // Filter and search characters
   const filteredCharacters = useMemo(() => {
     let filtered = characters;
 
-    // Apply search filter
     if (debouncedSearch) {
       filtered = filtered.filter(char =>
         char.name.toLowerCase().includes(debouncedSearch.toLowerCase())
       );
     }
 
-    // Apply homeworld filter
     if (filters.homeworld) {
       filtered = filtered.filter(char => char.homeworld === filters.homeworld);
     }
 
-    // Apply film filter
     if (filters.film) {
       filtered = filtered.filter(char => 
         char.films && char.films.includes(filters.film)
       );
     }
 
-    // Apply species filter
     if (filters.species) {
       filtered = filtered.filter(char => 
         char.species && char.species.includes(filters.species)
@@ -142,7 +134,6 @@ const CharacterList = () => {
     <div className="container mx-auto px-2 sm:px-4 py-4 sm:py-8">
       <Header />
 
-      {/* Search and Filters */}
       <div className="mb-4 sm:mb-8 space-y-3 sm:space-y-4">
         <div className="flex flex-col md:flex-row gap-3 sm:gap-4 items-start md:items-center">
           <SearchBar
@@ -156,7 +147,6 @@ const CharacterList = () => {
         />
       </div>
 
-      {/* Results count */}
       {!loading && !error && (
         <div className="mb-3 sm:mb-4 text-sw-light text-sm sm:text-base font-display">
           Showing {filteredCharacters.length} character{filteredCharacters.length !== 1 ? 's' : ''}
@@ -164,13 +154,10 @@ const CharacterList = () => {
         </div>
       )}
 
-      {/* Loading State */}
       {loading && <LoadingSpinner />}
 
-      {/* Error State */}
       {error && <ErrorMessage message={error} onRetry={handleRetry} />}
 
-      {/* No Results */}
       {!loading && !error && filteredCharacters.length === 0 && (
         <div className="text-center py-16">
           <p className="text-2xl font-display text-sw-red mb-2">NO CHARACTERS FOUND</p>
@@ -178,7 +165,6 @@ const CharacterList = () => {
         </div>
       )}
 
-      {/* Character Grid */}
       {!loading && !error && filteredCharacters.length > 0 && (
         <>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 md:gap-6 mb-4 sm:mb-8">
@@ -191,7 +177,6 @@ const CharacterList = () => {
             ))}
           </div>
 
-          {/* Pagination - only show if no search/filters active */}
           {!debouncedSearch && !filters.homeworld && !filters.film && !filters.species && (
             <Pagination
               currentPage={currentPage}
@@ -202,7 +187,6 @@ const CharacterList = () => {
         </>
       )}
 
-      {/* Character Modal */}
       {selectedCharacter && (
         <CharacterModal
           characterUrl={selectedCharacter}
@@ -217,7 +201,6 @@ const CharacterList = () => {
 const App = () => {
   return (
     <AuthProvider>
-      {/* StarField as persistent background for all pages */}
       <StarField />
       <BrowserRouter>
         <Routes>

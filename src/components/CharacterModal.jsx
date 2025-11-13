@@ -15,7 +15,6 @@ const CharacterModal = ({ characterUrl, isOpen, onClose }) => {
     }
   };
 
-  // Generate random image using character name as seed
   const getCharacterImageUrl = (characterName) => {
     if (!characterName) {
       return 'https://picsum.photos/400/500';
@@ -36,12 +35,10 @@ const CharacterModal = ({ characterUrl, isOpen, onClose }) => {
       onClick={handleBackdropClick}
     >
       <div className="bg-sw-space border-2 border-sw-gold rounded-lg max-w-2xl w-full max-h-[90vh] flex flex-col relative animate-slide-up overflow-hidden" style={{ backgroundColor: '#0A0A0A' }}>
-        {/* Header - Fixed, no scrollbar */}
         <div className="px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between flex-shrink-0 z-10 relative" style={{
           background: 'linear-gradient(90deg, #FFE81F 0%, #D4AF37 50%, #FFA500 100%)',
           height: '60px',
         }}>
-          {/* Dark overlay for better text contrast */}
           <div className="absolute inset-0 bg-black/20 pointer-events-none"></div>
           <h2 className="text-lg sm:text-xl md:text-2xl font-display font-bold text-sw-void relative z-10" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
             ═══ {character?.name?.toUpperCase() || 'LOADING'} ═══
@@ -54,14 +51,12 @@ const CharacterModal = ({ characterUrl, isOpen, onClose }) => {
           </button>
         </div>
 
-        {/* Content - Scrollable area */}
         <div className="p-4 sm:p-6 overflow-y-auto custom-scrollbar flex-1">
           {loading && <LoadingSpinner />}
           {error && <ErrorMessage message={error} />}
           
           {character && !loading && !error && (
             <div className="space-y-6">
-              {/* Image and Basic Info */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:items-start">
                 <div className="relative w-full">
                   <img
@@ -69,7 +64,6 @@ const CharacterModal = ({ characterUrl, isOpen, onClose }) => {
                     alt={character.name}
                     className="w-full h-64 md:h-auto md:min-h-[300px] object-cover rounded border-2 border-sw-gold"
                     onError={(e) => {
-                      // Fallback if image fails
                       const seed = character.name
                         .split('')
                         .reduce((acc, char) => acc + char.charCodeAt(0), 0);
@@ -102,13 +96,11 @@ const CharacterModal = ({ characterUrl, isOpen, onClose }) => {
                 </div>
               </div>
 
-              {/* Date Added */}
               <div className="p-4 rounded border border-sw-border" style={{ backgroundColor: '#0f0f0f' }}>
                 <p className="text-sw-deep-gold font-display mb-1">DATE ADDED</p>
                 <p className="text-sw-light text-xl font-bold">{formatDate(character.created)}</p>
               </div>
 
-              {/* Homeworld */}
               {homeworld && (
                 <div className="p-4 rounded border border-sw-border" style={{ backgroundColor: '#0f0f0f' }}>
                   <h3 className="text-sw-gold font-display text-lg mb-3 border-b border-sw-border pb-2" style={{ borderBottomColor: '#333333' }}>
@@ -124,7 +116,6 @@ const CharacterModal = ({ characterUrl, isOpen, onClose }) => {
                 </div>
               )}
 
-              {/* Species */}
               {species.length > 0 && (
                 <div className="p-4 rounded border border-sw-border" style={{ backgroundColor: '#0f0f0f' }}>
                   <p className="text-sw-deep-gold font-display mb-1">SPECIES</p>
@@ -132,7 +123,6 @@ const CharacterModal = ({ characterUrl, isOpen, onClose }) => {
                 </div>
               )}
 
-              {/* Close Button */}
               <div className="pt-4 flex justify-center">
                 <button
                   onClick={onClose}
